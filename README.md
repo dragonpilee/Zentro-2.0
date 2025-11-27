@@ -1,213 +1,243 @@
+###############################################################
+#                                                             #
+#     ███████╗███████╗███╗   ███╗████████╗██████╗  ██████╗    #
+#     ██╔════╝██╔════╝████╗ ████║╚══██╔══╝██╔══██╗██╔════╝    #
+#     ███████╗█████╗  ██╔████╔██║   ██║   ██████╔╝██║         #
+#     ╚════██║██╔══╝  ██║╚██╔╝██║   ██║   ██╔══██╗██║         #
+#     ███████║███████╗██║ ╚═╝ ██║   ██║   ██║  ██║╚██████╗    #
+#     ╚══════╝╚══════╝╚═╝     ╚═╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝    #
+#                                                             #
+#               ZENTRO 2.0 — INTELLIGENT CONTENT              #
+#                   Offline Vision • Docs • RAG               #
+###############################################################
+
+```
+
+```
+               ______
+            .-'      `-.
+          .'            `.
+         /   ZENTRO 2.0   \
+        |   (AI Platform)  |
+        |      _____       |
+         \    (  Z  )     /
+          `.    ----    .'
+            `-.______.-'
+```
+
 # ⚡ Zentro 2.0 – Intelligent Content Management  
-### *Open-Source AI for Vision, Documents & RAG*  
-### *Powered by Cyclops-VL 2.0 & Optimized for NVIDIA RTX GPUs*
-
-![Zentro](https://img.shields.io/badge/Zentro-2.0-magenta?style=flat-square)
-![Engine](https://img.shields.io/badge/Engine-Cyclops--VL%202.0%20%2B%20FastAPI-blue?style=flat-square)
-![UI](https://img.shields.io/badge/UI-Streamlit%20(Custom%20CSS)-purple?style=flat-square)
-![CUDA](https://img.shields.io/badge/Acceleration-RTX%20CUDA-green?style=flat-square)
-![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
-
-> **Developed with ❤️ by Alan Cyril Sunny**  
-> If you like this project, please ⭐ star the repository!
+### *Open-Source AI for Vision, Documents & RAG (Offline, GPU-Optimized)*  
+### *Built by Alan Cyril Sunny*
 
 ---
 
-## 🧠 Zentro 2.0 – Offline Intelligent Content Platform
+## 🔰 ASCII Tech Badges (GitHub-safe)
 
-Zentro is an open-source intelligent content management platform designed for:
-
-- **Image Analysis**  
-- **Document Understanding**  
-- **Retrieval-Augmented Conversational Intelligence (RAG)**  
-
-It runs fully **offline**, powered by your **NVIDIA RTX GPU**, and uses **Cyclops-VL 2.0** for vision-language reasoning.
-
-> ⚡ A commercial **cloud-managed version** also exists, where *all* computation, indexing, storage, and orchestration happen entirely in the cloud.
+```
+[ Engine: Cyclops-VL 2.0 ] [ UI: Streamlit ] [ Backend: FastAPI ]
+[ GPU: CUDA RTX ] [ Embeddings: SentenceTransformers ] [ DB: ChromaDB ]
+[ Parsing: PyMuPDF ] [ License: MIT ] [ Mode: Fully Offline ]
+```
 
 ---
 
-## ⚡ GPU Optimization (Open-Source Version)
+# 📚 Table of Contents
 
-- CUDA-accelerated model inference  
-- Mixed-precision (AMP)  
-- TensorRT-optimized model internals  
-- GPU-accelerated embedding generation  
-- Tuned for RTX GPUs (2050 → 4090 / A-Series)
+- [🚀 Overview](#-overview)
+- [⚡ GPU Optimization](#-gpu-optimization)
+- [✨ Features](#-features)
+- [🧠 RAG Architecture](#-rag-architecture)
+- [🧩 Technology Stack](#-technology-stack)
+- [📁 Project Structure](#-project-structure)
+- [🌐 Cloud Edition](#-cloud-edition)
+- [🔒 Privacy](#-privacy)
+- [🚀 Running Zentro](#-running-zentro)
+- [🛠 Troubleshooting](#-troubleshooting)
+- [🤝 Contributing](#-contributing)
+- [📜 License](#-license)
+- [⭐ Support](#-support)
 
 ---
 
-## ✨ Features
+# 🚀 Overview
 
-### 🖼️ Zentro Vision – Image Intelligence
-- Object, text & UI layout detection  
-- Image captioning, reasoning & semantic understanding  
-- Screenshot/diagram analysis  
+Zentro 2.0 is an **offline, open-source AI platform** for:
 
-### 📄 Zentro Docs – Document Intelligence
-- High-accuracy PDF parsing using **PyMuPDF**  
+- 🖼️ Image Intelligence  
+- 📄 Document Intelligence  
+- 💬 RAG-powered conversational AI  
+
+Runs **100% locally** with **RTX GPU acceleration**.
+
+> A commercial **cloud-managed edition** also exists  
+> where all compute, processing, indexing, storage, and orchestration  
+> run entirely in the cloud.
+
+---
+
+# ⚡ GPU Optimization
+
+- CUDA-accelerated inference  
+- Mixed precision (AMP)  
+- TensorRT-compatible architecture  
+- GPU-accelerated embeddings  
+- Optimized for:  
+  `RTX 2050 → 4060 → 4090 → A-Series`
+
+---
+
+# ✨ Features
+
+## 🖼️ Zentro Vision — Image Intelligence
+- Object/text/layout detection  
+- Diagram & UI screenshot understanding  
+- Image reasoning, summaries, captions  
+
+## 📄 Zentro Docs — Document Intelligence
+- High-accuracy parsing using **PyMuPDF**  
 - Layout + metadata extraction  
-- Topic, summary, and entity understanding  
+- Topic modeling, entity extraction, structured summaries  
 
-### 💬 Zentro Chat – RAG Conversational System
-Complete offline RAG engine:
-
-- **Persistent Knowledge Base** using ChromaDB  
-- Multi-document chat & semantic retrieval  
-- Context-aware memory with auto window management  
-- Selective DB clearing and file-level control  
-
----
-
-## 🧠 RAG Architecture
-
-1. **Ingestion** → PDF/TXT via PyMuPDF  
-2. **Chunking** → Optimized segmentation  
-3. **Embedding** → SentenceTransformers (GPU)  
-4. **Storage** → ChromaDB persistent vector store  
-5. **Retrieval** → Semantic cosine similarity  
-6. **LLM Answering** → Cyclops-VL 2.0 grounded generation  
+## 💬 Zentro Chat — RAG Conversational AI
+- Persistent knowledge base via **ChromaDB**  
+- Multi-document RAG  
+- Context-aware follow-ups  
+- Auto context window management  
+- Clear/reset knowledge base on demand  
 
 ---
 
-## 🧩 Technology Stack
+# 🧠 RAG Architecture
 
-| Component | Technology |
-|----------|------------|
-| UI | Streamlit + Custom CSS |
-| Backend | FastAPI |
-| VLM | Cyclops-VL 2.0 |
-| GPU Backend | CUDA (RTX) |
-| Embeddings | SentenceTransformers |
-| Vector Store | ChromaDB |
-| Parsing | PyMuPDF (fitz) |
-| API Model Interface | OpenAI-compatible (LM Studio) |
-| Environment | Conda |
+```
+[ Ingestion ] → [ Chunking ] → [ Embedding ] → [ ChromaDB ]
+       ↓               ↓              ↓               ↓
+                [ Semantic Retrieval ] → [ LLM Answering ]
+```
+
+- **Ingestion**: PyMuPDF PDF/TXT loader  
+- **Chunking**: smart segmentation  
+- **Embedding**: SentenceTransformers (GPU)  
+- **Retrieval**: cosine similarity  
+- **LLM**: Cyclops-VL 2.0  
 
 ---
 
-## 📁 Project Structure
+# 🧩 Technology Stack
+
+```
+UI             → Streamlit + Custom CSS  
+Backend        → FastAPI  
+AI Model       → Cyclops-VL 2.0  
+GPU Engine     → CUDA (RTX)  
+Embeddings     → SentenceTransformers  
+Vector Store   → ChromaDB  
+Parsing        → PyMuPDF (fitz)  
+API Format     → OpenAI Compatible (LM Studio)  
+Environment    → Conda  
+```
+
+---
+
+# 📁 Project Structure
 
 ```
 zentro/
-│── backend.py          # FastAPI backend server
-│── streamlit_app.py    # Streamlit UI + Custom CSS
+│── backend.py          # FastAPI backend
+│── streamlit_app.py    # Streamlit UI
 │── environment.yml     # Dependencies
 │── README.md           # Documentation
-│── run_backend.bat     # Backend launcher (Windows)
+│── run_backend.bat     # Backend launcher
 ```
 
 ---
 
-## 🌐 Commercial Cloud Version (Optional)
+# 🌐 Cloud Edition
 
-A premium **cloud-managed edition** of Zentro is also available.
+A fully cloud-managed version is available (commercial).
 
-In the cloud version:
+Cloud version provides:
 
-- All computation  
-- Document processing  
-- Vector indexing  
-- Retrieval + orchestration  
-- Storage + management  
-
-…are fully handled **in the cloud**.
-
-### Additional cloud-only capabilities
 - Multi-user workspaces  
-- Automated ingestion pipelines  
 - OCR + handwriting recognition  
+- Automated ingestion pipelines  
 - Knowledge graph generation  
-- RBAC (Role-Based Access Control)  
-- Dashboards, monitoring, auditing  
+- Centralized vector database  
+- RBAC (roles & permissions)  
+- Monitoring dashboards  
 
-> 📌 This README documents the *offline open-source edition*.  
-> The cloud version is a separate commercial product.
+This README focuses on the **offline open-source version**.
 
 ---
 
-## 🔒 Privacy (Offline Version)
+# 🔒 Privacy
 
-- 100% offline processing  
-- Zero telemetry  
+- Fully offline  
 - No external APIs  
+- No telemetry  
 - All data stays on your device  
 
 ---
 
-## 🚀 Running Zentro (Offline)
+# 🚀 Running Zentro
 
-### 1. Start Backend
-
-Using the batch script:
-```bash
+## 1️⃣ Start Backend
+```
 start run_backend.bat
 ```
-
-Or manually:
-```bash
+or
+```
 uvicorn backend:app --reload --host 127.0.0.1 --port 8000
 ```
 
-*(Ensure LM Studio is running and the model is loaded.)*
-
----
-
-### 2. Start Frontend
-
-```bash
+## 2️⃣ Start Frontend
+```
 streamlit run streamlit_app.py
 ```
 
----
-
-### Access URLs
-
-| Component | URL |
-|----------|------|
-| UI | http://localhost:8501 |
-| Backend API | http://127.0.0.1:8000 |
-| Health Check | http://127.0.0.1:8000/health |
+## Access
+```
+UI        → http://localhost:8501
+Backend   → http://127.0.0.1:8000
+Health    → http://127.0.0.1:8000/health
+```
 
 ---
 
-## 🛠 Troubleshooting
+# 🛠 Troubleshooting
 
-### Backend not starting?
-Check if port 8000 is in use:
-```bash
+### Backend port busy
+```
 netstat -ano | findstr :8000
 ```
 
-### Context Length Errors
-Zentro auto-manages context. If issues appear:
-
-- Clear chat history  
+### Context overflow
+- Clear history  
 - Reset knowledge base  
 
-### GPU Not Detected?
-
-```python
+### GPU not detected
+```
 import torch
 torch.cuda.is_available()
 ```
 
 ---
 
-## 🤝 Contributing
+# 🤝 Contributing
 
-Contributions are welcome!  
-Fork the repo → Create a branch → Submit PR.
-
----
-
-## 📜 License
-
-MIT License — open, free, community-friendly.
+Pull requests welcome!  
+Fork → Branch → PR.
 
 ---
 
-## ⭐ Support the Project
+# 📜 License
 
-If Zentro helps you, please ⭐ star the repository!
+MIT License.
+
+---
+
+# ⭐ Support
+
+If Zentro helps you,  
+**please ⭐ star the repository!**
 
