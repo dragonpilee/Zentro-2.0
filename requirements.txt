@@ -1,0 +1,11 @@
+streamlit
+fastapi
+uvicorn
+python-multipart
+openai
+pypdf2
+sentence-transformers
+chromadb
+pymupdf
+numpy
+requests

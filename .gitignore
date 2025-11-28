@@ -1,0 +1,81 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.*
+
+# Logs
+*.log
+
+# Chroma DB and SQLite
+chroma_db/
+*.sqlite3
+
+# Test / coverage
+.pytest_cache/
+htmlcov/
+.coverage
+
+# Lockfiles
+Pipfile.lock
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Logs
+*.log
+
+# Database (Local)
+chroma_db/
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.idea/
+.vscode/
+
+# Temporary / Test Files
+test_*.py
+check_lm_studio.py
+backend_old.py
+payload.json
+condaenv.*.requirements.txt
+
+# Test Uploads
+*.png
+*.pdf
+*.txt
+!requirements.txt
