@@ -82,7 +82,7 @@ Complete offline RAG engine:
 | Vector Store | ChromaDB |
 | Parsing | PyMuPDF (fitz) |
 | API Model Interface | OpenAI-compatible (LM Studio) |
-| Environment | Conda |
+| Environment | Docker |
 
 ---
 
@@ -92,9 +92,10 @@ Complete offline RAG engine:
 zentro/
 │── backend.py          # FastAPI backend server
 │── streamlit_app.py    # Streamlit UI + Custom CSS
-│── environment.yml     # Dependencies
+│── requirements.txt    # Python Dependencies
+│── Dockerfile          # Docker Build Configuration
+│── docker-compose.yml  # Docker Orchestration
 │── README.md           # Documentation
-│── run_backend.bat     # Backend launcher (Windows)
 ```
 
 ---
@@ -135,61 +136,49 @@ In the cloud version:
 
 ---
 
-## 🚀 Running Zentro (Offline)
+## 🚀 Running Zentro (Docker)
 
-### 1. Start Backend
+### Prerequisites
+- **Docker Desktop** installed and running.
+- **LM Studio** running on your host machine (server started on port 1234).
+- *No local Python/Conda setup required!*
 
-Using the batch script:
-```bash
-start run_backend.bat
-```
-
-Or manually:
-```bash
-uvicorn backend:app --reload --host 127.0.0.1 --port 8000
-```
-
-*(Ensure LM Studio is running and the model is loaded.)*
-
----
-
-### 2. Start Frontend
-
-```bash
-streamlit run streamlit_app.py
-```
-
----
+### Start the Application
+1. Open a terminal in the project folder.
+2. Run the following command:
+   ```bash
+   docker-compose up --build
+   ```
+3. Wait for the containers to build and start.
 
 ### Access URLs
 
 | Component | URL |
 |----------|------|
 | UI | http://localhost:8501 |
-| Backend API | http://127.0.0.1:8000 |
-| Health Check | http://127.0.0.1:8000/health |
+| Backend API | http://localhost:8000/docs |
+| Health Check | http://localhost:8000/health |
 
 ---
 
 ## 🛠 Troubleshooting
 
-### Backend not starting?
-Check if port 8000 is in use:
+### Docker Connectivity
+If the backend cannot connect to LM Studio:
+- Ensure LM Studio is running.
+- The `docker-compose.yml` uses `host.docker.internal` to reach the host. This works out-of-the-box on Docker Desktop for Windows/Mac.
+- If you changed the LM Studio port, update `LM_STUDIO_BASE_URL` in `docker-compose.yml`.
+
+### Rebuilding
+If you change the code or dependencies, rebuild the containers:
 ```bash
-netstat -ano | findstr :8000
+docker-compose up --build
 ```
 
-### Context Length Errors
-Zentro auto-manages context. If issues appear:
-
-- Clear chat history  
-- Reset knowledge base  
-
-### GPU Not Detected?
-
-```python
-import torch
-torch.cuda.is_available()
+### Stopping the App
+Press `Ctrl+C` in the terminal, or run:
+```bash
+docker-compose down
 ```
 
 ---
@@ -210,4 +199,3 @@ MIT License — open, free, community-friendly.
 ## ⭐ Support the Project
 
 If Zentro helps you, please ⭐ star the repository!
-
